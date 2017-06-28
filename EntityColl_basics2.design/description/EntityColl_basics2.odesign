@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="EntityColl_basics2" version="11.1.1.201610211630">
+  <ownedViewpoints name="EntityColl_basics2_Viewpoint" label="EntityColl_basics2_Viewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="B2_Collections diagram" label="B2_Collections diagram" domainClass="entityColl.EntityModel" enablePopupBars="true">
+      <metamodel href="http://www.example.org/entityColl#/"/>
+      <defaultLayer name="Default">
+        <containerMappings name="B2_C_Container" label="B2_C_Container" semanticCandidatesExpression="aql: self.collections" domainClass="entityColl.Collection" childrenPresentation="VerticalStack">
+          <subContainerMappings name="B2_C_Entity" label="B2_C_Entity" semanticCandidatesExpression="aql: self.entities" domainClass="entityColl.Entity" childrenPresentation="List">
+            <subNodeMappings name="B2_C_Attribute" label="B2_C_Attribute" semanticCandidatesExpression="aql: self.attributes" domainClass="entityColl.Attribute">
+              <style xsi:type="style:NoteDescription" labelExpression="aql: 'Unknown type: ' + self.name" iconPath="/EntityColl_basics2.design/icons/attribute1.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+              <conditionnalStyles predicateExpression="aql: self.type.oclIsTypeOf(entityColl::PrimitiveType)">
+                <style xsi:type="style:CustomStyleDescription" labelExpression="aql: self.name + ': ' + self.type.oclAsType(entityColl::PrimitiveType).name" iconPath="/EntityColl_basics2.design/icons/attribute2.png" labelPosition="node" resizeKind="NSEW" id="PrimitiveTypeStyle">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.type.oclIsTypeOf(entityColl::Tuple)">
+                <style xsi:type="style:CustomStyleDescription" labelExpression="aql: self.name + ': Tuple [' + self.type.oclAsType(entityColl::Tuple).elements->collect(elem | elem.name + ' ') + ']'" iconPath="/EntityColl_basics2.design/icons/attribute3.png" labelPosition="node" resizeKind="NSEW" id="TupleStyle">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <subNodeMappings name="B2_C_Reference" label="B2_C_Reference" semanticCandidatesExpression="aql: self.references" domainClass="entityColl.Reference">
+              <style xsi:type="style:CustomStyleDescription" labelExpression="aql: self.name + '[ ' + self.lowerBound + '..' + self.upperBound + '] -> ' + self.targets.name" iconPath="/EntityColl_basics2.design/icons/Ref16.png" labelPosition="node" resizeKind="NSEW" id="ReferenceStyle">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="aql: self.name" iconPath="/EntityColl_basics2.design/icons/entity.png" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql: self.name" iconPath="/EntityColl_basics2.design/icons/collection.png" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="B2_Creation palette" label="B2_Creation palette">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="B2_Create collection" label="Create collection" elementsToSelect="aql: self" containerMappings="//@ownedViewpoints[name='EntityColl_basics2_Viewpoint']/@ownedRepresentations[name='B2_Collections%20diagram']/@defaultLayer/@containerMappings[name='B2_C_Container']" iconPath="/EntityColl_basics2.design/icons/collection.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.Collection" referenceName="collections">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'Collection_' + container.collections->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="package" valueExpression="aql: 'default'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="B2_Create entity" label="Create entity" elementsToSelect="aql: self" containerMappings="//@ownedViewpoints[name='EntityColl_basics2_Viewpoint']/@ownedRepresentations[name='B2_Collections%20diagram']/@defaultLayer/@containerMappings[name='B2_C_Container']/@subContainerMappings[name='B2_C_Entity']" iconPath="/EntityColl_basics2.design/icons/entity.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.Entity" referenceName="entities">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'Entity_' + container.entities->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="B2_Create primitive attribute" label="Create primitive attribute" elementsToSelect="aql: self" nodeMappings="//@ownedViewpoints[name='EntityColl_basics2_Viewpoint']/@ownedRepresentations[name='B2_Collections%20diagram']/@defaultLayer/@containerMappings[name='B2_C_Container']/@subContainerMappings[name='B2_C_Entity']/@subNodeMappings[name='B2_C_Attribute']" iconPath="/EntityColl_basics2.design/icons/attribute2.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.Attribute" referenceName="attributes">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.PrimitiveType" referenceName="type">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'default'"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'PrimitiveAttribute_' + container.attributes.type->filter(entityColl::PrimitiveType)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="B2_Create tuple attribute" label="Create tuple attribute" elementsToSelect="aql: self" nodeMappings="//@ownedViewpoints[name='EntityColl_basics2_Viewpoint']/@ownedRepresentations[name='B2_Collections%20diagram']/@defaultLayer/@containerMappings[name='B2_C_Container']/@subContainerMappings[name='B2_C_Entity']/@subNodeMappings[name='B2_C_Attribute']" iconPath="/EntityColl_basics2.design/icons/attribute3.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.Attribute" referenceName="attributes">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.Tuple" referenceName="type"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'TupleAttribute_' + container.attributes.type->filter(entityColl::Tuple)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="B2_Create reference" label="Create reference" elementsToSelect="aql: self" nodeMappings="//@ownedViewpoints[name='EntityColl_basics2_Viewpoint']/@ownedRepresentations[name='B2_Collections%20diagram']/@defaultLayer/@containerMappings[name='B2_C_Container']/@subContainerMappings[name='B2_C_Entity']/@subNodeMappings[name='B2_C_Reference']" iconPath="/EntityColl_basics2.design/icons/Ref16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entityColl.Reference" referenceName="references">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'Reference_' + container.references->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="lowerBound" valueExpression="0"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="upperBound" valueExpression="-1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

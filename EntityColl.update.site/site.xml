@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/EntityColl.sdk_1.0.0.jar" id="EntityColl.sdk" version="1.0.0">
+      <category name="EntityColl metamodel"/>
+   </feature>
+   <category-def name="EntityColl metamodel" label="EntityColl metamodel"/>
+</site>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="EntityColl_basics1" version="11.1.1.201610211630">
+  <ownedViewpoints name="EntityColl_basics1_Viewpoint" label="EntityColl_basics1_Viewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="B1_Collections diagram" label="B1_Collections diagram" domainClass="entityColl.EntityModel" enablePopupBars="true">
+      <metamodel href="http://www.example.org/entityColl#/"/>
+      <defaultLayer name="Default">
+        <containerMappings name="B1_C_Container" label="B1_C_Container" semanticCandidatesExpression="aql: self.collections" domainClass="entityColl.Collection" childrenPresentation="VerticalStack">
+          <subContainerMappings name="B1_C_Entity" label="B1_C_Entity" semanticCandidatesExpression="aql: self.entities" domainClass="entityColl.Entity" childrenPresentation="List">
+            <subNodeMappings name="B1_C_Attribute" label="B1_C_Attribute" semanticCandidatesExpression="aql: self.attributes" domainClass="entityColl.Attribute">
+              <style xsi:type="style:NoteDescription" labelExpression="aql: 'Unknown type: ' + self.name" iconPath="/EntityColl_basics1.design/icons/attribute1.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+              <conditionnalStyles predicateExpression="aql: self.type.oclIsTypeOf(entityColl::PrimitiveType)">
+                <style xsi:type="style:CustomStyleDescription" labelExpression="aql: self.name + ': ' + self.type.oclAsType(entityColl::PrimitiveType).name" iconPath="/EntityColl_basics1.design/icons/attribute2.png" labelPosition="node" resizeKind="NSEW" id="PrimitiveTypeStyle">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.type.oclIsTypeOf(entityColl::Tuple)">
+                <style xsi:type="style:CustomStyleDescription" labelExpression="aql: self.name + ': Tuple [' + self.type.oclAsType(entityColl::Tuple).elements->collect(elem | elem.name + ' ') + ']'" iconPath="/EntityColl_basics1.design/icons/attribute3.png" labelPosition="node" resizeKind="NSEW" id="TupleStyle">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <subNodeMappings name="B1_C_Reference" label="B1_C_Reference" semanticCandidatesExpression="aql: self.references" domainClass="entityColl.Reference">
+              <style xsi:type="style:CustomStyleDescription" labelExpression="aql: self.name + '[ ' + self.lowerBound + '..' + self.upperBound + '] -> ' + self.targets.name" iconPath="/EntityColl_basics1.design/icons/Ref16.png" labelPosition="node" resizeKind="NSEW" id="ReferenceStyle">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="aql: self.name" iconPath="/EntityColl_basics1.design/icons/entity.png" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql: self.name" iconPath="/EntityColl_basics1.design/icons/collection.png" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

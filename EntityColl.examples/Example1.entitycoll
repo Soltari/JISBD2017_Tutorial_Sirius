@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityColl:EntityModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:entityColl="http://www.example.org/entityColl" name="Stuff">
+  <collections name="Media" package="Culture">
+    <entities name="Social network">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="url">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="users">
+        <type xsi:type="entityColl:PrimitiveType" name="int"/>
+      </attributes>
+    </entities>
+    <entities name="Newspaper">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="director">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="url">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="sponsors">
+        <type xsi:type="entityColl:Tuple">
+          <elements name="string"/>
+          <elements name="string"/>
+          <elements name="string"/>
+        </type>
+      </attributes>
+    </entities>
+    <entities name="Radio">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="frequency">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="announcers">
+        <type xsi:type="entityColl:Tuple">
+          <elements name="string"/>
+          <elements name="string"/>
+          <elements name="string"/>
+        </type>
+      </attributes>
+    </entities>
+    <entities name="TV">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="budget">
+        <type xsi:type="entityColl:PrimitiveType" name="float"/>
+      </attributes>
+    </entities>
+    <entities name="Magazine">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="director">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+  </collections>
+  <collections name="Books" package="Culture">
+    <entities name="Book">
+      <attributes name="title">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="year">
+        <type xsi:type="entityColl:PrimitiveType" name="int"/>
+      </attributes>
+      <references name="authors" lowerBound="1" upperBound="-1" targets="//@collections.1/@entities.2"/>
+      <references name="content" lowerBound="1" upperBound="1" targets="//@collections.1/@entities.5"/>
+      <references name="publishers" upperBound="-1" targets="//@collections.1/@entities.1"/>
+    </entities>
+    <entities name="Publisher">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="city">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="journals" upperBound="-1" targets="//@collections.1/@entities.3"/>
+    </entities>
+    <entities name="Author">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="company" upperBound="1" targets="//@collections.1/@entities.4"/>
+    </entities>
+    <entities name="Journal">
+      <attributes name="issn">
+        <type xsi:type="entityColl:Tuple">
+          <elements name="String"/>
+          <elements name="String"/>
+        </type>
+      </attributes>
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="discipline">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Company">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="country">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Content">
+      <attributes name="chapters">
+        <type xsi:type="entityColl:PrimitiveType" name="int"/>
+      </attributes>
+      <attributes name="pages">
+        <type xsi:type="entityColl:PrimitiveType" name="int"/>
+      </attributes>
+    </entities>
+  </collections>
+  <collections name="Restaurants" package="Food">
+    <entities name="Restaurant">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="location">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="manager">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="waiters" lowerBound="1" upperBound="-1" targets="//@collections.2/@entities.1"/>
+      <references name="menus" lowerBound="1" upperBound="-1" targets="//@collections.2/@entities.3"/>
+      <references name="tables" upperBound="-1" targets="//@collections.2/@entities.2"/>
+    </entities>
+    <entities name="Waiter">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="nif">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="preferredDishes">
+        <type xsi:type="entityColl:Tuple">
+          <elements name="string"/>
+          <elements name="string"/>
+          <elements name="string"/>
+        </type>
+      </attributes>
+    </entities>
+    <entities name="Table">
+      <attributes name="number">
+        <type xsi:type="entityColl:PrimitiveType" name="int"/>
+      </attributes>
+      <attributes name="isOccupied">
+        <type xsi:type="entityColl:PrimitiveType" name="boolean"/>
+      </attributes>
+      <attributes name="location">
+        <type xsi:type="entityColl:Tuple">
+          <elements name="int"/>
+          <elements name="int"/>
+        </type>
+      </attributes>
+    </entities>
+    <entities name="Menu">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="price">
+        <type xsi:type="entityColl:PrimitiveType" name="float"/>
+      </attributes>
+      <attributes name="suitableForCeliacs">
+        <type xsi:type="entityColl:PrimitiveType" name="boolean"/>
+      </attributes>
+      <references name="dishes" lowerBound="1" upperBound="-1" targets="//@collections.2/@entities.4"/>
+    </entities>
+    <entities name="Dish">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="price">
+        <type xsi:type="entityColl:PrimitiveType" name="float"/>
+      </attributes>
+      <references name="ingredients" lowerBound="1" upperBound="-1" targets="//@collections.2/@entities.5"/>
+    </entities>
+    <entities name="Ingredient">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="price">
+        <type xsi:type="entityColl:PrimitiveType" name="float"/>
+      </attributes>
+      <attributes name="quantity">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="isSeasonal">
+        <type xsi:type="entityColl:PrimitiveType" name="boolean"/>
+      </attributes>
+    </entities>
+  </collections>
+</entityColl:EntityModel>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityColl:EntityModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:entityColl="http://www.example.org/entityColl" name="Even more stuff">
+  <collections name="Movies" package="Culture">
+    <entities name="Movie">
+      <attributes name="genre">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="title">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="year">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="director_id" lowerBound="1" upperBound="-1" targets="//@collections.0/@entities.1"/>
+      <references name="criticisms" upperBound="-1" targets="//@collections.0/@entities.4"/>
+      <references name="prizes" upperBound="-1" targets="//@collections.0/@entities.3"/>
+      <references name="rating" upperBound="-1" targets="//@collections.0/@entities.2"/>
+    </entities>
+    <entities name="Director">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="actor_movies" upperBound="-1" targets="//@collections.0/@entities.0"/>
+      <references name="directed_movies" upperBound="-1" targets="//@collections.0/@entities.0"/>
+    </entities>
+    <entities name="Rating">
+      <attributes name="score">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="voters">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Prize">
+      <attributes name="event">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="year">
+        <type xsi:type="entityColl:PrimitiveType" name="number"/>
+      </attributes>
+      <attributes name="names">
+        <type xsi:type="entityColl:Tuple">
+          <elements name="string"/>
+          <elements name="string"/>
+        </type>
+      </attributes>
+    </entities>
+    <entities name="Criticism">
+      <attributes name="color">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="journalist">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="media" upperBound="1" targets="//@collections.0/@entities.5"/>
+    </entities>
+    <entities name="Media">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="url">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Movie theater">
+      <attributes name="city">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="country">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+  </collections>
+  <collections name="Politicians" package="People">
+    <entities name="Person">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="birth_date">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="email">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="gender">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="given_name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="family_name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="contact_details" upperBound="-1" targets="//@collections.1/@entities.7"/>
+      <references name="links" upperBound="-1" targets="//@collections.1/@entities.6"/>
+      <references name="other_names" upperBound="-1" targets="//@collections.1/@entities.5"/>
+    </entities>
+    <entities name="Event">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="start_date">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="end_date">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="classification">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="organizations" upperBound="-1" targets="//@collections.1/@entities.3"/>
+    </entities>
+    <entities name="Membership">
+      <attributes name="start_date">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="end_date">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="on_behalf_of_id">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="role">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="legislative_period_id">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="area_id" upperBound="-1" targets="//@collections.1/@entities.4"/>
+      <references name="organization_id" upperBound="-1" targets="//@collections.1/@entities.3"/>
+      <references name="person_id" upperBound="-1" targets="//@collections.1/@entities.0"/>
+    </entities>
+    <entities name="Organization">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="image">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="srgb">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="classification">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <references name="links" upperBound="-1" targets="//@collections.1/@entities.6"/>
+      <references name="other_names" upperBound="-1" targets="//@collections.1/@entities.5"/>
+    </entities>
+    <entities name="Area">
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="type">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Other_name">
+      <attributes name="lang">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="name">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="note">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Link">
+      <attributes name="note">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="url">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+    <entities name="Contact_detail">
+      <attributes name="type">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+      <attributes name="value">
+        <type xsi:type="entityColl:PrimitiveType" name="string"/>
+      </attributes>
+    </entities>
+  </collections>
+</entityColl:EntityModel>

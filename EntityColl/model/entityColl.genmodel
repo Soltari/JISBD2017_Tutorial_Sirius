@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/EntityColl/src" modelPluginID="EntityColl" modelName="EntityColl"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>entityColl.ecore</foreignModel>
+  <genPackages prefix="EntityColl" disposableProviderFactory="true" ecorePackage="entityColl.ecore#/">
+    <genClasses ecoreClass="entityColl.ecore#//EntityModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//EntityModel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityColl.ecore#//EntityModel/collections"/>
+    </genClasses>
+    <genClasses ecoreClass="entityColl.ecore#//Collection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Collection/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityColl.ecore#//Collection/entities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Collection/package"/>
+    </genClasses>
+    <genClasses ecoreClass="entityColl.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Entity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityColl.ecore#//Entity/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityColl.ecore#//Entity/references"/>
+    </genClasses>
+    <genClasses ecoreClass="entityColl.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Attribute/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityColl.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="entityColl.ecore#//Type"/>
+    <genClasses ecoreClass="entityColl.ecore#//PrimitiveType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//PrimitiveType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="entityColl.ecore#//Tuple">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entityColl.ecore#//Tuple/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="entityColl.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Reference/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Reference/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entityColl.ecore#//Reference/upperBound"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entityColl.ecore#//Reference/targets"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

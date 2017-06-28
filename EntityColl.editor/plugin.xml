@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated entityColl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="entityColl.presentation.EntityCollModelWizardID"
+            name="%_UI_EntityCollModelWizard_label"
+            class="entityColl.presentation.EntityCollModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EntityCollModelFile.gif">
+         <description>%_UI_EntityCollModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated entityColl -->
+      <editor
+            id="entityColl.presentation.EntityCollEditorID"
+            name="%_UI_EntityCollEditor_label"
+            icon="icons/full/obj16/EntityCollModelFile.gif"
+            extensions="entitycoll"
+            class="entityColl.presentation.EntityCollEditor"
+            contributorClass="entityColl.presentation.EntityCollActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
