@@ -25,7 +25,7 @@ A continuación clona este repositorio Git, abre Eclipse e importa los siguiente
 * `EntityColl.edit`
 * `EntityColl.editor`
 
-Estos proyectos contienen el metamodelo básico, necesario para poder crear modelos y vistas asociadas a este metamodelo. En lugar de importar estos proyectos también puedes hacer uso del *Update site* proporcionado en este repositorio. El proyecto es *EntityColl.update.site*.
+Estos proyectos contienen el metamodelo básico, necesario para poder crear modelos y vistas asociadas a este metamodelo. En lugar de importar estos proyectos también puedes hacer uso del *Update site* proporcionado en este repositorio. El proyecto es `EntityColl.update.site`.
 
 ## Descripción del metamodelo:
 
