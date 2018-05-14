@@ -66,11 +66,11 @@ El tutorial de aspectos avanzados parte del proyecto `EntityColl_intermediate.de
 
 El tutorial se divide en dos vídeos alojados en Youtube. En el primero de ellos se implementan las operaciones de edición directa y reconexión. En el segundo el resto de características:
 
-<a href="https://www.youtube.com/watch?v=CBRcB10Qrpw"><img src="https://img.youtube.com/vi/CBRcB10Qrpw/maxresdefault.jpg" width="250"></a>
+<a href="https://www.youtube.com/watch?v=CBRcB10Qrpw"><img src="https://img.youtube.com/vi/CBRcB10Qrpw/hqdefault.jpg" width="250"></a>
 
 https://www.youtube.com/watch?v=CBRcB10Qrpw
 
 
-<a href="https://www.youtube.com/watch?v=na_Lxxp8D3M"><img src="https://img.youtube.com/vi/na_Lxxp8D3M/maxresdefault.jpg" width="250"></a>
+<a href="https://www.youtube.com/watch?v=na_Lxxp8D3M"><img src="https://img.youtube.com/vi/na_Lxxp8D3M/hqdefault.jpg" width="250"></a>
 
 https://www.youtube.com/watch?v=na_Lxxp8D3M
